@@ -1,27 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    
 
-
-
-<!-- Featured Posts-->
- <h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">Category - {{category.category_name}}</h3>
+<h3 class="text-uppercase text-warning" style="letter-spacing: 2px;">Search Results for "{{ keyword }}"</h3>
   <div class="row mb-2">
-    {% if posts%}
-    {% for post in posts %}
+    {% if blogs%}
+    {% for blog in blogs %}
     <div class="col-md-6">
       <div class="card border-0" >
         <div class="card-body">
-          <h3><a href="{% url 'blogs' slug=post.slug %}" class="text-decoration-none text-dark">{{ post.title }}</a></h3>
-          <small class="mb-1 text-muted">{{post.updated_at | timesince}} ago | {{ post.author }}</small>
-          <p class="card-text">{{ post.short_description|truncatewords:20 }}...</p>
+          <h3><a href="{% url 'blogs' slug=blog.slug %}" class="text-decoration-none text-dark">{{ blog.title }}</a></h3>
+          <small class="mb-1 text-muted">{{blog.updated_at | timesince}} ago | {{ blog.author }}</small>
+          <p class="card-text">{{ blog.short_description|truncatewords:20 }}...</p>
         </div>
       </div>
     </div>
     {% endfor %}
     {% else %}
-    <p>No posts available in this category.</p>
+    <p>No posts available for the search term "{{ keyword }}".</p>
     {% endif %}
 
   </div>
@@ -41,10 +37,5 @@
         </div>
         {% endif %}
       </aside><!-- /.blog-sidebar -->
-
-     
-
-    
-
 
 {% endblock %}
