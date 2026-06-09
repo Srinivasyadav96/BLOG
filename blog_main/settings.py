@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blogs',
-    'about',    
+    'about',
+    'blog_main',    
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +137,5 @@ MEDIA_URL = '/media/'
 # Serve uploaded files from the top-level `uploads/` directory during development.
 # This maps `/media/uploads/...` → `<BASE_DIR>/uploads/...` without moving files.
 MEDIA_ROOT = BASE_DIR
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
