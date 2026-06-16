@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from blogs.models import Category, Blog
 from django.contrib.auth.decorators import login_required
 from .forms import Category_Form
@@ -47,3 +47,9 @@ def edit_category(request, pk):
         'category': category,
     }
     return render(request, 'dashboard/edit_category.html', context)
+
+
+def delete_category(request, pk):
+    category = get_object_or_404(Category, pk=pk)
+    category.delete()
+    return redirect('categories')
