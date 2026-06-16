@@ -15,6 +15,7 @@ def dashboards(request):
     }
     return render(request, 'dashboard/dashboard.html', context)
 
+#Category Functions
 def categories(request):
     return render(request, 'dashboard/categories.html')
 
@@ -53,3 +54,13 @@ def delete_category(request, pk):
     category = get_object_or_404(Category, pk=pk)
     category.delete()
     return redirect('categories')
+
+
+
+#Posts Functions
+def posts(request):
+    posts=Blog.objects.all()
+    context={
+        'posts': posts
+    }
+    return render(request, 'dashboard/posts.html', context)
