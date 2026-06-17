@@ -1,7 +1,20 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from blogs.models import Category, Blog
 from django.contrib.auth.decorators import login_required
-from .forms import Category_Form
+from .forms import Category_Form, BlogPostForm
+from django.template.defaultfilters import slugify
+
+
+def generate_unique_slug(title):
+    base_slug = slugify(title)
+    slug = base_slug
+    counter = 1
+    while Blog.objects.filter(slug=slug).exists():
+        slug = f"{base_slug}-{counter}"
+        counter += 1
+    return slug
+
+
 # Create your views here.
 
 @login_required(login_url='login')
@@ -64,3 +77,43 @@ def posts(request):
         'posts': posts
     }
     return render(request, 'dashboard/posts.html', context)
+
+def add_post(request):
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES)  # for files like images
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            title = form.cleaned_data['title']
+            post.slug = generate_unique_slug(title)
+            post.save()
+            return redirect('posts')
+    form = BlogPostForm()
+    context = {
+        'form': form,
+    }
+    return render(request, 'dashboard/add_post.html', context)
+
+
+def edit_post(request, pk):
+    post = get_object_or_404(Blog, pk=pk)
+    if request.method == 'POST':
+        form = BlogPostForm(request.POST, request.FILES, instance=post) # instance means existing data
+        if form.is_valid():
+            post = form.save()
+            title= form.cleaned_data['title']
+            post.slug= slugify(title) + '-'+str(post.id) # making slug unique
+            post.save()
+            return redirect('posts')
+    form = BlogPostForm(instance=post)
+    context={
+        'form':form,
+        'post': post,
+    }
+    return render(request, 'dashboard/edit_post.html',context)
+
+
+def delete_post(request, pk):
+    post = get_object_or_404(Blog, pk=pk)
+    post.delete()
+    return redirect('posts')
