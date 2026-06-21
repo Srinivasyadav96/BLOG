@@ -10,7 +10,7 @@
 
     <!--right side content-->
     <div class="col-md-9">
-        {% if perms.auth.add_user %}
+        {% if perms.auth.edit_user %}
         <h3> Edit User    </h3>
         <form action="" method="POST">  
             {% csrf_token %}
@@ -19,7 +19,7 @@
             <button type="submit" class="btn btn-warning">Submit</button>
         </form>
         <br>
-
+s
         {% else %}
         <h4> You don't have permission to view this page </h4>
         {% endif %}
