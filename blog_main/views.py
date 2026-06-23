@@ -49,7 +49,11 @@ def login(request):
             user = auth.authenticate(username=username, password=password)
             if user is not None:
                 auth.login(request, user)
+
+        if request.user.is_staff:
             return redirect('dashboards')
+
+        return redirect('home')
     context = {
         'form': form,
     }
