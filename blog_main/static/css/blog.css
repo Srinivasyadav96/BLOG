@@ -67,3 +67,43 @@ h1, h2, h3, h4, h5, h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+/* ---------- MOBILE RESPONSIVE FIX ---------- */
+
+@media (max-width:768px){
+
+.blog-header{
+padding-bottom:15px;
+}
+
+.blog-header-logo{
+display:block;
+text-align:center;
+font-size:1.8rem;
+margin-bottom:10px;
+}
+
+.blog-header .input-group{
+width:100%;
+}
+
+.blog-header input{
+width:100%;
+}
+
+.blog-header .btn{
+margin-top:5px;
+}
+
+.nav-scroller .nav{
+display:flex;
+flex-wrap:wrap;
+justify-content:center !important;
+}
+
+.nav-scroller .nav a{
+padding:10px;
+font-size:18px;
+}
+
+}
