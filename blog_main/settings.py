@@ -137,6 +137,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 # Serve uploaded files from the top-level `uploads/` directory during development.
 # This maps `/media/uploads/...` → `<BASE_DIR>/uploads/...` without moving files.
-MEDIA_ROOT = BASE_DIR
+MEDIA_ROOT = BASE_DIR / 'uploads'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
