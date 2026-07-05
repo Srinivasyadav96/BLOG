@@ -177,14 +177,14 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 #cloudary settings
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'kdpxaeup',
-    'API_KEY': '834845794655499',
-    'API_SECRET': 'D-bjGkR3mHOdnop5N1XjSHFftLQ',
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
 # cloudinary configuration
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-# whitnoise settings
+# whitnoise settin
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
