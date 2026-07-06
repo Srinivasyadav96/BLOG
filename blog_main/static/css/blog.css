@@ -107,3 +107,96 @@ font-size:18px;
 }
 
 }
+
+
+
+
+/* ======================================================
+   PROFESSIONAL LIGHT BLUE THEME
+   Add this at the END of blog.css
+====================================================== */
+
+/* Theme Colors
+   Light Blue : #4FC3F7
+   Black      : #000000
+*/
+
+/* Buttons */
+.btn-warning{
+    background-color:#4FC3F7 !important;
+    border-color:#4FC3F7 !important;
+    color:#000 !important;
+    font-weight:600;
+    transition:all .3s ease;
+}
+
+.btn-warning:hover,
+.btn-warning:focus,
+.btn-warning:active{
+    background-color:#29B6F6 !important;
+    border-color:#29B6F6 !important;
+    color:#000 !important;
+    box-shadow:none !important;
+}
+
+/* Text */
+.text-warning{
+    color:#4FC3F7 !important;
+}
+
+/* Backgrounds */
+.bg-warning{
+    background-color:#4FC3F7 !important;
+    color:#000 !important;
+}
+
+/* Bootstrap Badges */
+.badge.bg-warning{
+    background-color:#4FC3F7 !important;
+    color:#000 !important;
+}
+
+/* Links */
+a{
+    transition:0.3s ease;
+}
+
+a:hover{
+    color:#29B6F6;
+}
+
+/* Active Navigation */
+.nav-link.active{
+    color:#4FC3F7 !important;
+}
+
+/* Dashboard Sidebar Active Menu */
+.list-group-item.active{
+    background-color:#4FC3F7 !important;
+    border-color:#4FC3F7 !important;
+    color:#000 !important;
+}
+
+/* Dropdown Active Item */
+.dropdown-item:active{
+    background-color:#4FC3F7 !important;
+    color:#000 !important;
+}
+
+/* Pagination */
+.page-item.active .page-link{
+    background-color:#4FC3F7 !important;
+    border-color:#4FC3F7 !important;
+    color:#000 !important;
+}
+
+/* Form Controls */
+.form-control:focus{
+    border-color:#4FC3F7;
+    box-shadow:0 0 0 .15rem rgba(79,195,247,.25);
+}
+
+/* Search Box Button */
+.input-group .btn-warning{
+    border-left:none;
+}

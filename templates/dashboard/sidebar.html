@@ -2,15 +2,15 @@
 <div class="col-md-3">
     <div class="nav flex-column nav-pills bg-light" aria-orientation="vertical">
         <a href="{% url 'dashboards' %}"
-            class="nav-link text-dark {% if '/dashboard/' == request.path %}bg-warning{% endif %}">Dashboard</a>
+            class="nav-link text-dark {% if '/dashboard/' == request.path %}bg-info{% endif %}">Dashboard</a>
         {% if request.user.is_superuser or request.user.groups.exists %}
         <a href="{% url 'users' %}"
-            class="nav-link text-dark {% if '/users/' in request.path %}bg-warning{% endif %}">Users</a>
+            class="nav-link text-dark {% if '/users/' in request.path %}bg-info{% endif %}">Users</a>
         {% endif %}
         <a href="{% url 'categories' %}"
-            class="nav-link text-dark {% if '/categories/' in request.path %}bg-warning{% endif %}">Categories</a>
+            class="nav-link text-dark {% if '/categories/' in request.path %}bg-info{% endif %}">Categories</a>
         <a href="{% url 'posts' %}"
-            class="nav-link text-dark {% if '/posts/' in request.path %}bg-warning{% endif %}">Posts</a>
+            class="nav-link text-dark {% if '/posts/' in request.path %}bg-info{% endif %}">Posts</a>
         <a href="" class="nav-link text-dark">Logout</a>
     </div>
 </div>

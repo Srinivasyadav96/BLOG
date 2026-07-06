@@ -20,7 +20,7 @@
     <header class="blog-header py-3">
       <div class="row justify-content-between align-items-center">
         <div class="col-12 col-md-4 pt-1 text-center text-md-left">
-          <a class="blog-header-logo text-dark" href="/">Django Blog</a>
+          <a class="blog-header-logo text-dark" href="/">Blog Site</a>
         </div>
         <!--Search code-->
         <div class="col-12 col-md-4 mt-2 mt-md-0">
@@ -28,14 +28,14 @@
             <div class="input-group">
               <input class="form-control" type="text" name="keyword" value="{{ keyword }}"
                 placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
-              <button type="submit" class="btn btn-warning" id="button-search" type="button">Go!</button>
+              <button type="submit" class="btn btn-info" id="button-search" type="button">Go!</button>
             </div>
           </form>
           <!--search end -->
         </div>
         <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-end mt-2 mt-md-0">
           {% if not user.is_authenticated %}
-          <a class="btn btn-sm btn-warning" href="{% url 'login' %}">Login</a> &nbsp;
+          <a class="btn btn-sm btn-info" href="{% url 'login' %}">Login</a> &nbsp;
           <a class="btn btn-sm btn-outline-secondary" href="{% url 'register' %}">Register</a>
           {% else %}
           {% if user.is_staff %}
